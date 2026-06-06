@@ -63,6 +63,12 @@ print("=====================================================================")
 FILE = "APEX_FINAL_SQUEEZE_BRAIN.csv"
 GREEK_FILE = "Ultimate_Advanced_Greek_Tape.csv"
 
+# [FIX 8] The greek tape is STRIKE-LEVEL (many rows per minute) and its
+# clean_time may be in a different timezone than the brain's time_ct (the tape
+# starts 09:31 = ET, brain is CT). Run audit_data.py first; set this to the
+# shift (in minutes) it reports as best. ET tape vs CT brain -> -60.
+GREEK_TZ_SHIFT_MIN = 0
+
 try:
     df = pd.read_csv(FILE)
     df.dropna(subset=['spx_close'], inplace=True)
@@ -70,13 +76,24 @@ try:
 
     df_greeks = pd.read_csv(GREEK_FILE)
     df_greeks['clean_time'] = pd.to_datetime(df_greeks['clean_time'])
+    # apply the timezone correction BEFORE deriving the join keys
+    df_greeks['clean_time'] = df_greeks['clean_time'] + pd.Timedelta(minutes=GREEK_TZ_SHIFT_MIN)
     df_greeks['date'] = df_greeks['clean_time'].dt.strftime('%Y-%m-%d')
     df_greeks['time_ct'] = df_greeks['clean_time'].dt.strftime('%H:%M:%S')
 
     greek_cols = ['net_delta', 'net_gamma', 'net_vanna', 'net_charm', 'net_vomma']
-    df_greeks = df_greeks[['date', 'time_ct'] + greek_cols].copy()
+    # [FIX 8] net_* are aggregate (identical across strikes in a minute) but the
+    # file repeats them per strike. Collapse to ONE row per minute or the merge
+    # multiplies every brain row by the strike count.
+    df_greeks = (df_greeks[['date', 'time_ct'] + greek_cols]
+                 .drop_duplicates(subset=['date', 'time_ct'], keep='first')
+                 .copy())
 
+    rows_before = len(df)
     df = pd.merge(df, df_greeks, on=['date', 'time_ct'], how='left')
+    if len(df) != rows_before:
+        print(f"   WARNING: merge changed row count {rows_before} -> {len(df)}. "
+              "Greek tape still has duplicate minutes; dedup failed.")
 
     # [FIX 7] Surface a silent-join failure: if timestamps don't line up the
     # greeks become all-zero and you'd never know. Print the match rate.
