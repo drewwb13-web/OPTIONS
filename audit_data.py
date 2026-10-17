@@ -191,8 +191,7 @@ else:
             if best[1] != 0:
                 flag(f"Best alignment is at a {best[1]} min shift ({best[0]:.0f}%), NOT 0h. "
                      "Your two files are in DIFFERENT TIMEZONES. The V40 merge on raw "
-                     "time strings still matches most minutes, but every greek is attached "
-                     "to the WRONG bar (an hour off) - a silent misalignment, not zeros. "
+                     "time strings matches almost nothing, so net_* greeks are ~all zero. "
                      f"FIX: convert clean_time by {best[1]} min before merging.")
             elif cov0 < 60:
                 flag(f"Even at 0h the join only covers {cov0:.0f}% of greek minutes. "
