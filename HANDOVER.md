@@ -32,8 +32,9 @@ is the goal, not a regression.
    (~5yr ES 1-min, needs symbol sterilization), `vix_5_year_day` / `historical`
    (daily OHLC from Yahoo).
 
-## CODE (git branch `claude/compassionate-wright-YGIeC`, repo `drewwb13-web/OPTIONS`)
-- **apex_v41_audited.py** — leak-free rebuild of the V40 breakout engine.
+## CODE (git branch `claude/determined-fermat-sasoqs`, repo `drewwb13-web/OPTIONS`)
+- **apex_v42_audited.py** — CURRENT. V41 + real P&L, walk-forward, greek/wall fixes (see V42 section).
+- **apex_v41_audited.py** — previous leak-free rebuild, kept for comparison.
 - **audit_data.py** — READ-ONLY data sterilization scanner (never writes).
 - **.gitignore**
 
@@ -63,6 +64,16 @@ below.
    misalignment zeroed every greek. FIXED: `drop_duplicates` per minute before
    merge; added `GREEK_TZ_SHIFT_MIN` knob (set to what the audit reports).
 
+## V42 FIXES (apex_v42_audited.py)
+- [A] Reports real P&L in ES points after `COST_PTS` (expectancy, profit factor, drawdown, t-stat), not just win rate.
+- [B] Fills at the NEXT bar's OPEN and checks exits on that bar, so backtest and labels measure the same trade (V41 filled at next close but labels started a bar earlier).
+- [C] `REQUIRE_GREEKS`: trains only on dates the greek tape covers (Nov-Dec had all-zero greeks in training, never in test).
+- [D] `GREEK_LAG_BARS=1`: greeks lagged one bar in case a stamp covers the minute that follows it.
+- [E] Greeks: kept as-is if constant per minute, SUMMED across strikes if they vary (V41 kept the first strike only).
+- [F] `WALLS_ARE_SPX`: Call_Wall/Put_Wall/King_Node shifted into ES terms by the live ES-SPX basis.
+- [G] Expanding walk-forward + a no-model baseline. Apr 16-30 is no longer blind (V40/V41 were judged on it).
+- [H] Timezone tripwire: a wrong shift still "matches" ~85% of bars, so V42 compares 0/-60/+60 and stops if the knob is wrong.
+
 ## ALREADY CORRECT (do not "fix")
 - All model FEATURES are point-in-time (rolling/shift/current-bar only).
 - Volume profile (POC/VAH/VAL) uses only the 08:30–09:00 ORB.
@@ -72,9 +83,10 @@ below.
 1. **Run the audit:** `python audit_data.py`
    - Read the red flags. Note (a) how many rows-per-minute the greek tape has,
      and (b) which time shift (0 / -60 / +60) gives the best merge coverage.
-2. **Set the timezone knob:** open `apex_v41_audited.py`, set
-   `GREEK_TZ_SHIFT_MIN = <best shift from the audit>` (likely **-60**).
-3. **Train & verify:** `python apex_v41_audited.py`. Confirm the
+2. **Timezone knob:** V42 defaults `GREEK_TZ_SHIFT_MIN = -60` and refuses to
+   run if the audit-style check finds a better shift (it prints the value).
+3. **Train & verify:** `python apex_v42_audited.py`. Judge it on the
+   WALK-FORWARD block vs the BASELINE, on expectancy and t-stat, not win rate. Confirm the
    `greek merge coverage:` line is now high (not ~0%) and that row counts didn't
    explode.
 4. **Implication to confront:** if the timezone bug is real, every V40-and-prior
@@ -88,4 +100,4 @@ below.
 ## CONSTRAINTS
 - Keep changes to *correctness*; don't silently alter the trading logic.
 - Be explicit about anything you could not verify by running it.
-- Develop on branch `claude/compassionate-wright-YGIeC`; commit and push there.
+- Develop on branch `claude/determined-fermat-sasoqs`; commit and push there.

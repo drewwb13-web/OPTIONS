@@ -4,3 +4,5 @@ __pycache__/
 
 # trained model artifacts
 Apex_V41_Audited.json
+
+Apex_V42_Audited.json
