@@ -22,6 +22,8 @@ tolerance not yet decided.
 | Saty ATR Levels / Pivot Ribbon / Volume Stack | RETIRED | 0 of 10 pass. The ATR trigger breakout is a significant *loser* in every era (t -2.2 to -3.9). |
 | Intraday direction features (EMA/VWAP/MACD/RSI/Saty/opening bar, 5m to daily) | RETIRED | 0 of 51 single features and 0 of 8 combinations survive Holm correction; 0 of 3 beat the coin flip on the holdout. |
 | Percentage-of-price prop brackets | RETIRED | +$551/yr vs +$1,785/yr for the fixed-point bracket. Lucid's rules are set in dollars. |
+| 0DTE premium, intraday momentum, overnight drift, calendar effects, prop day-selection, prop playbook changes, diversified core, mirrored breakout (final round) | RETIRED | 0 passed. 0DTE condors win 81-86% but need 90.1% to break even. Every prop day-filter cut profit, because the prop book earns from how many evaluations it gets through. Keep the current prop playbook (K0). |
+| Intermarket signals (credit, VIX term structure, dollar, copper/gold, rates, oil), F13 | RETIRED | 0 of 8 pass as a core filter; none predict next-5-day QQQ returns (Newey-West t between -2.48 and +1.81). |
 
 ## Yardstick for any future intraday backtest
 
@@ -45,6 +47,7 @@ leak until proven otherwise.
 12. Selection rules that reward doing nothing when every option is negative.
 13. Higher-timeframe indicators read from the still-forming bar.
 14. Independent random directions across prop accounts = hedging.
+15. Pass tests that compare floats with a strict `>`: a 1e-16 difference once printed PASS. Require a material difference.
 
 ## Final step
 
