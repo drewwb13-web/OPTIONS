@@ -1,5 +1,7 @@
 # APEX QUANT — SESSION HANDOVER
 
+> **Superseded:** see `PROJECT_CLOSEOUT.md` for the final status of the whole project.
+
 > Paste this whole file as your first message to a fresh Claude Code session to
 > resume with full context. It assumes you are running in the folder that holds
 > the data CSVs: `C:\Users\drew_\OneDrive\Desktop\downloads\`.
