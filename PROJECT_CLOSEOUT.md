@@ -26,6 +26,7 @@ tolerance not yet decided.
 | Intermarket signals (credit, VIX term structure, dollar, copper/gold, rates, oil), F13 | RETIRED | 0 of 8 pass as a core filter; none predict next-5-day QQQ returns (Newey-West t between -2.48 and +1.81). |
 | Regime atlas (dollar, rates, yield curve, credit, VIX, luxury vs needs, housing, goods, transports, volume, trend), F14 | REFERENCE ONLY | 1 of 90 conditions STABLE: capitulation volume (SPY volume > 2x its 50-day average on a down day) is followed by S&P returns +3.0% higher over 63 days, with a worse worst-5%. VIX > 25 (Nasdaq 63-day +6.1%) came close. Nearly every condition moves 21-day P(up) only between 57% and 73%, against a ~64% base rate. |
 | QQQ 3-day dip buy in uptrend + low volatility (P-D), F14 | **PAPER** | Validation t 2.59, lockbox t 2.94, regime-matched placebo 99.4% in both windows, positive at 2x costs. Fails only the deflated Sharpe (0.34 / 0.55 vs 0.95). Negative before 2006. At 1% risk it makes about $60-80/yr on $5,000, roughly 9 trades a year. |
+| Gamma regime, panic sizing, signal combination, COT retest, prop on ES, sector rotation, SVXY (F16-F22) | 0 of 20 pass; 3 NEAR-MISSES go to forward testing | G2 0DTE put spread (0.10 delta, 10:00 ET) only on positive-gamma days: profitable in both eras even at worst-side (bid/ask) fills, lockbox t 3.69, placebo 100%, but needs a >=95.2% win rate and got 95.5% / 97.6%. G4 follow the NQ opening move on negative-gamma days: positive in both eras and at 2x costs, lockbox t 1.39. W1 equal-weight signal score: beat the core's Sharpe in both windows (0.89 vs 0.76, 1.19 vs 0.94) with a smaller drawdown, but in the market only 28% of days. |
 
 ## Yardstick for any future intraday backtest
 
@@ -67,6 +68,6 @@ One final round finishes the project:
 - close-out files, including a "what was not tested and why" list: single stocks, crypto,
   forex, NQ-ES spreads, news/sentiment and order-book data (no data on hand).
 
-After that round, **historical searching on this data stops**. The only new evidence is
+After that round, **historical searching on THIS data stops** (the search itself continues with forward testing and new data sources). The only new evidence is
 forward paper/live results, reviewed on **2027-01-18** against the expected ranges in
 `PAPER_PLAN.md`.
