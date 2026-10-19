@@ -24,6 +24,8 @@ tolerance not yet decided.
 | Percentage-of-price prop brackets | RETIRED | +$551/yr vs +$1,785/yr for the fixed-point bracket. Lucid's rules are set in dollars. |
 | 0DTE premium, intraday momentum, overnight drift, calendar effects, prop day-selection, prop playbook changes, diversified core, mirrored breakout (final round) | RETIRED | 0 passed. 0DTE condors win 81-86% but need 90.1% to break even. Every prop day-filter cut profit, because the prop book earns from how many evaluations it gets through. Keep the current prop playbook (K0). |
 | Intermarket signals (credit, VIX term structure, dollar, copper/gold, rates, oil), F13 | RETIRED | 0 of 8 pass as a core filter; none predict next-5-day QQQ returns (Newey-West t between -2.48 and +1.81). |
+| Regime atlas (dollar, rates, yield curve, credit, VIX, luxury vs needs, housing, goods, transports, volume, trend), F14 | REFERENCE ONLY | 1 of 90 conditions STABLE: capitulation volume (SPY volume > 2x its 50-day average on a down day) is followed by S&P returns +3.0% higher over 63 days, with a worse worst-5%. VIX > 25 (Nasdaq 63-day +6.1%) came close. Nearly every condition moves 21-day P(up) only between 57% and 73%, against a ~64% base rate. |
+| QQQ 3-day dip buy in uptrend + low volatility (P-D), F14 | **PAPER** | Validation t 2.59, lockbox t 2.94, regime-matched placebo 99.4% in both windows, positive at 2x costs. Fails only the deflated Sharpe (0.34 / 0.55 vs 0.95). Negative before 2006. At 1% risk it makes about $60-80/yr on $5,000, roughly 9 trades a year. |
 
 ## Yardstick for any future intraday backtest
 
@@ -48,6 +50,9 @@ leak until proven otherwise.
 13. Higher-timeframe indicators read from the still-forming bar.
 14. Independent random directions across prop accounts = hedging.
 15. Pass tests that compare floats with a strict `>`: a 1e-16 difference once printed PASS. Require a material difference.
+16. Missing data read as "condition false" (NaN > x is False): it fabricated decades of fake states before a series existed.
+17. t-statistics on near-zero variance (every trade hitting the same stop): t = -1624 is a divide-by-epsilon, not evidence.
+18. Rules judged on a handful of trades: report them as untestable instead.
 
 ## Final step
 
