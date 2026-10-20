@@ -14,7 +14,7 @@ tolerance not yet decided.
 | Strategy | Verdict | Key evidence |
 |---|---|---|
 | Vol-target core (QQQ, 200-day filter, TARGET_VOL 0.15, LEV_CAP 2.0) | **KEEP** | ~12.3%/yr over 100 years, max drawdown -32%, t = +7.08, financing costs charged. Nothing is fitted. |
-| LucidFlex 50K, 1 account, coin flip, fixed 60/84 eval bracket | **KEEP, small** | +$544/yr (2022 to mid-2024) up to +$3,989/yr (mid-2024 to 2026) at Drew's confirmed $90 evaluation / $90 reset. The profit comes from entries at the open, i.e. it pays off on movement. |
+| LucidFlex 50K, 1 account, coin flip, fixed 60/84 eval bracket | **DROPPED by Drew (2026-10-20)** | +$544/yr (2022 to mid-2024) up to +$3,989/yr (mid-2024 to 2026) at Drew's confirmed $90 evaluation / $90 reset. The profit comes from entries at the open, i.e. it pays off on movement. |
 | Multi-account prop (independent coin flips) | RETIRED | Accounts take opposite sides on 24-35% of days, which is Lucid's banned hedging (automated detection). Same-direction versions lose money with 27-54% ruin. |
 | ES/SPX APEX breakout engine (V40/V41) | RETIRED | -0.17 pts/trade even before costs, worse than random direction. 0 of ~37,000 settings significant in both halves. |
 | Saty Phase Oscillator as a trade (dot, fall618, filters) | RETIRED | Best near-miss: fall618 / hold 10 days, placebo rank 96.9% vs 99% needed, and it failed on the S&P. |
@@ -71,3 +71,7 @@ One final round finishes the project:
 After that round, **historical searching on THIS data stops** (the search itself continues with forward testing and new data sources). The only new evidence is
 forward paper/live results, reviewed on **2027-01-18** against the expected ranges in
 `PAPER_PLAN.md`.
+
+## Next family (queued)
+
+F23: a YouTube trader's daily volume contraction-to-expansion method. Extract his rules from the video transcripts, check the trade examples he shows, then test the rules mechanically on ETFs and on point-in-time S&P 500 / Nasdaq-100 stocks, with placebos and the corrected DSR.
