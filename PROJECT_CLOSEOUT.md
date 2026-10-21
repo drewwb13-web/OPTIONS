@@ -72,6 +72,12 @@ After that round, **historical searching on THIS data stops** (the search itself
 forward paper/live results, reviewed on **2027-01-18** against the expected ranges in
 `PAPER_PLAN.md`.
 
-## Next family (queued)
+## F23 result (2026-10-21)
+
+The 8 videos teach an UNUSUAL-VOLUME (expansion) breakout scan, not contraction-to-expansion, and there are no performance claims. On his own named tickers the rule's 20-day median return is -1.9% (positive means come from single outliers such as the AMC squeeze). On S&P 500 stocks it was strong before 2016 only because of survivorship bias, then flat or negative; 0 of 24 variant-universe tests pass. Not tested: his preferred $300M-$2B small caps, because no survivorship-free small-cap data is on hand.
+
+Side findings: the core's TARGET_VOL is 0.15 everywhere. G2's real live structure (XSP 1-wide = SPX 10-wide) stays positive at 2x costs in both eras (+$4,037 / +$7,775 per SPX-size spread, i.e. 1/10 of that per XSP spread), unlike the tested 5-wide. G4 risks more than $100 per MNQ on 58% of trades (max $826), which is large for a $5,000 account.
+
+## Earlier queue (done)
 
 F23: a YouTube trader's daily volume contraction-to-expansion method. Extract his rules from the video transcripts, check the trade examples he shows, then test the rules mechanically on ETFs and on point-in-time S&P 500 / Nasdaq-100 stocks, with placebos and the corrected DSR.
