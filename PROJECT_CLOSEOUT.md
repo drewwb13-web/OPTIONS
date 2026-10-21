@@ -13,7 +13,10 @@ tolerance not yet decided.
 
 | Strategy | Verdict | Key evidence |
 |---|---|---|
-| Vol-target core (QQQ, 200-day filter, TARGET_VOL 0.15, LEV_CAP 2.0) | **KEEP** | ~12.3%/yr over 100 years, max drawdown -32%, t = +7.08, financing costs charged. Nothing is fitted. |
+| Vol-target core (QQQ, 200-day filter, TARGET_VOL 0.15, LEV_CAP 2.0) | **KEEP** | 12.14%/yr over 100 years, max drawdown -33.69%, Sharpe 0.91 for the rule as run (1% band, 0.25x rebalance threshold, cash interest, expense ratio, financing charged). Nothing is fitted. The earlier ~12.3% / -32% figure used a different year-count convention. |
+| Core leverage dial (TARGET_VOL) | **0.15 kept** | 100-year: 0.15 -> 12.14% / -33.69% / Sharpe 0.91; 0.20 -> 13.82% / -40.22% / 0.86; 0.25 -> 15.21% / -42.36% / 0.85. QLD era 2006+: 0.15 -> 11.26% / -20.1%; 0.20 -> 14.00% / -26.4%; 0.25 -> 15.95% / -32.2%. More dial = more growth and deeper drawdowns, lower Sharpe. QLD and margin give near-identical results once the rebalance threshold is in place. |
+| B5 Connors RSI(2) on SPY/QQQ (close > 200-day, RSI(2) < 10, exit when close > 5-day SMA) | **PAPER** | +$23.09/trade, ~$601/yr on $5,000, t 8.04. Edge halved after publication (+0.746%/trade before 2008, +0.382% after). Beats raising the core dial on Sharpe; core + B5 max drawdown -28.21%. Fails only the deflated Sharpe, by 0.005. Kill if the average trade is below 0 after 30 forward trades. |
+| Williams volatility breakout (B1b) | RETIRED | Failed the pre-registered rules. |
 | LucidFlex 50K, 1 account, coin flip, fixed 60/84 eval bracket | **DROPPED by Drew (2026-10-20)** | +$544/yr (2022 to mid-2024) up to +$3,989/yr (mid-2024 to 2026) at Drew's confirmed $90 evaluation / $90 reset. The profit comes from entries at the open, i.e. it pays off on movement. |
 | Multi-account prop (independent coin flips) | RETIRED | Accounts take opposite sides on 24-35% of days, which is Lucid's banned hedging (automated detection). Same-direction versions lose money with 27-54% ruin. |
 | ES/SPX APEX breakout engine (V40/V41) | RETIRED | -0.17 pts/trade even before costs, worse than random direction. 0 of ~37,000 settings significant in both halves. |
@@ -76,7 +79,24 @@ forward paper/live results, reviewed on **2027-01-18** against the expected rang
 
 The 8 videos teach an UNUSUAL-VOLUME (expansion) breakout scan, not contraction-to-expansion, and there are no performance claims. On his own named tickers the rule's 20-day median return is -1.9% (positive means come from single outliers such as the AMC squeeze). On S&P 500 stocks it was strong before 2016 only because of survivorship bias, then flat or negative; 0 of 24 variant-universe tests pass. Not tested: his preferred $300M-$2B small caps, because no survivorship-free small-cap data is on hand.
 
-Side findings: the core's TARGET_VOL is 0.15 everywhere. G2's real live structure (XSP 1-wide = SPX 10-wide) stays positive at 2x costs in both eras (+$4,037 / +$7,775 per SPX-size spread, i.e. 1/10 of that per XSP spread), unlike the tested 5-wide. G4 risks more than $100 per MNQ on 58% of trades (max $826), which is large for a $5,000 account.
+Side findings: the core's TARGET_VOL is 0.15 everywhere. G2's real live structure (XSP 1-wide = SPX 10-wide) stays positive at true 2x costs in both eras, unlike the tested 5-wide. G4 risks more than $100 per MNQ on 58% of trades (max $826), which is large for a $5,000 account.
+
+**Correction (2026-10-21):** the first report of this finding mislabelled the columns. Its "2x" figures (+$4,037 / +$7,775) were base cost, and its "net" figures were gross. Corrected totals per SPX-size spread (divide by 10 for one XSP spread):
+
+| Structure | Window | Gross | Base cost | True 2x cost |
+|---|---|---|---|---|
+| SPX 10-wide | DEV | +$7,397 | +$4,037 | +$677 |
+| SPX 10-wide | LOCKBOX | +$11,625 | +$7,775 | +$3,925 |
+| SPX 5-wide | DEV | +$2,145 | -$1,185 | -$4,515 |
+| SPX 5-wide | LOCKBOX | +$4,743 | +$983 | -$2,777 |
+
+Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst month was -$102, and the maximum drawdown -$216. The 2x margin in DEV is thin.
+
+## Queue after F23
+
+- F26 stock momentum (M1-M4), pre-registered in `RULES_F26.md`. It needs survivorship-free stock data, so it runs only after a data purchase.
+- Before buying: a free pre-screen of published stock anomalies, using Ken French and Open Source Asset Pricing returns, which are survivorship-free.
+- B5 extended to more ETFs, and the core rule applied to Bitcoin. Both are free.
 
 ## Earlier queue (done)
 
