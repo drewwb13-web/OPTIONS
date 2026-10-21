@@ -92,6 +92,16 @@ Side findings: the core's TARGET_VOL is 0.15 everywhere. G2's real live structur
 
 Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst month was -$102, and the maximum drawdown -$216. The 2x margin in DEV is thin.
 
+## F27-F29 results (2026-10-21)
+
+| Family | Verdict | Key evidence |
+|---|---|---|
+| F27 free stock-anomaly pre-screen (Ken French + OSAP, long-only top portfolio minus market) | 0 of 7 pass, so **no Sharadar purchase** | Momentum, industry momentum, 52-week high, SUE, announcement return, short-term reversal and small x momentum each earned +6.6% to +10.8%/yr in 1963-2004 and about nothing after. The best post-2004 t was 1.18; the break-even cost was at most 2.2%/yr. |
+| F28 B5 on 13 ETFs | **RE-CHECK** | Passes (a), (b), (c) and (e); fails DSR, like B5. Failed clause (f), "more $ with no worse drawdown", but $/yr divided by max drawdown is better than B5's in every era (0.65 vs 0.57, 0.64 vs 0.48, 1.67 vs 1.12). Clause (f) was worded badly, so it is re-judged at matched risk. About 45 trades/yr vs about 12 for B5. |
+| F29 core rule on Bitcoin | RETIRED | Beat the core's Sharpe in every window, but placebo rank was 72-88%: a circular shift of its own leverage series earned nearly as much. The gain is exposure to BTC's 54%/yr rise, not timing. |
+
+The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
+
 ## Queue after F23
 
 - F26 stock momentum (M1-M4), pre-registered in `RULES_F26.md`. It needs survivorship-free stock data, so it runs only after a data purchase.
