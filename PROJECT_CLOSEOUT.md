@@ -108,6 +108,15 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 - The result depends on the IV convention: two earlier, wrong conventions gave the opposite sign. Real quotes are needed.
 - Drew's ThetaData account is the free tier: EOD quotes from 2024-01-02 only. Standard is $80/month, history from 2016. The subscriber agreement requires deleting the data within 30 days of cancelling.
 
+**F30B real quotes (2026-10-22): V2 RETIRED.** Tested on 124 real quoted trades, 2023-08 to 2026-10, from the free ThetaData tier.
+- On real XSP quotes the bid-ask spread is 202% of the credit collected, and the trade makes -$0.56 per trade. Priced as SPXW / 10, it showed +$39.77.
+- The Black-Scholes screen tracked real P&L (correlation 0.71) but overstated it by $31.69 per trade (t -4.33).
+- **The same scaling (SPX / 10) priced G2 for XSP, so G2 must be re-checked on real XSP quotes.**
+
+**B5 inside one account:** B5's $23.09/trade and $601/yr were margin numbers (2.0x cap). Capped at cash, they are $20.47 and $533. B5 fires when the core is already fully invested: median core leverage on B5 signal days is 0.98x, and 44.8% of signal days leave no cash. Inside one $5,000 cash account with no margin, B5 earns $94 / -$19 / $20 a year (DEV / VAL / LOCK).
+
+**F31:** FOMC days are G2's best days ($5.13/trade, 100% win rate, vs $1.42 on other days). The filter "skip G2 on FOMC and CPI days" is rejected.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
