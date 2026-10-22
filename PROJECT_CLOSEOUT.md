@@ -100,6 +100,14 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 | F28 B5 on 13 ETFs | **RE-CHECK** | Passes (a), (b), (c) and (e); fails DSR, like B5. Failed clause (f), "more $ with no worse drawdown", but $/yr divided by max drawdown is better than B5's in every era (0.65 vs 0.57, 0.64 vs 0.48, 1.67 vs 1.12). Clause (f) was worded badly, so it is re-judged at matched risk. About 45 trades/yr vs about 12 for B5. |
 | F29 core rule on Bitcoin | RETIRED | Beat the core's Sharpe in every window, but placebo rank was 72-88%: a circular shift of its own leverage series earned nearly as much. The gain is exposure to BTC's 54%/yr rise, not timing. |
 
+**F28 re-check (2026-10-22): does not beat B5.** The 13-ETF book was scaled to 0.2027x, chosen on DEV only to match B5's drawdown. Its Sharpe is higher in both later eras (VAL 0.34 vs 0.22, LOCK 0.67 vs 0.63), but LOCKBOX $/yr is $177 vs $183, and the rule needed both. Drawdown is not monotone in position size, because cash limits how many trades are open at once. B5 stays SPY/QQQ only.
+
+**F30 B5 traded with options, screen only (Black-Scholes, one IV per day from the action-day close VIX/VXN, no skew).** Implied volatility falls 1.1-1.8 points between entry and exit.
+- V1, buying a ~0.50-delta call (30+ DTE), loses to plain shares in every era. Option edge t is -10.7 to -16.8. **RETIRED.**
+- V2, selling a ~0.30-delta 5-wide put spread (7+ DTE), passes the lenient gate: option edge +$6.05/trade (t 2.06) in VAL and +$17.84 (t 4.24) in LOCK, and positive at 2x costs. But DEV is negative (edge t -2.63, 2x total -$2,483), and DEV max drawdown is -$3,657, too big for $5,000.
+- The result depends on the IV convention: two earlier, wrong conventions gave the opposite sign. Real quotes are needed.
+- Drew's ThetaData account is the free tier: EOD quotes from 2024-01-02 only. Standard is $80/month, history from 2016. The subscriber agreement requires deleting the data within 30 days of cancelling.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
