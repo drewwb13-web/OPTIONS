@@ -127,6 +127,20 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 - **G2 vehicle:** CBOE publishes a real XSP chain. In the one snapshot taken, XSP's bid-ask spread was 133% of the credit, against 48% for SPXW / 10, while G2 can absorb only $1.20-2.02 of extra slippage per spread. XSP looks non-viable; the G2X_* forward keys will settle it. The SPX 10-wide version is possible from about $20k: $126-278/month at base cost, $21-140/month at 2x, max drawdown -$1,470 to -$2,626.
 - **Capital plan, one margin account:** adding every paper strategy to the core raises return about 22% and drawdown about 60% (VAL at 2x on $5k: core alone $749 at -20.1%, everything $914 at -32.2%). Only the core is proven.
 
+**Benchmarks (2026-10-23):**
+
+| Book | 100-year total US market, 1926-2026 | Since 1999, real QQQ |
+|---|---|---|
+| Buy and hold | 10.26% / max DD -84.07% | 10.73% / -82.96% |
+| Core 0.15 | 12.14% / -33.69% | **8.95%** / -20.11% |
+| Core 0.20 | 13.82% / -40.22% | 10.41% / -26.38% |
+| Core 0.25 | 15.21% / -42.36% | 11.47% / -32.24% |
+| Core 0.30 | 15.81% / -46.23% | 12.59% / -37.17% |
+
+- Since 1999, the core at 0.15 earns less than buy and hold. Its edge there is crash depth (about -20% vs -83%) and time underwater (42 vs 179 months). Only the 0.25-0.30 dials beat buy and hold's return in both series.
+- Run on SPY instead of QQQ (1999-2026), the core makes about 1.6 points a year less.
+- Tax drag in a taxable account is 1.5-2.5 points of CAGR. An IRA using QLD for the leverage matches the margin version within 0.1 point.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
