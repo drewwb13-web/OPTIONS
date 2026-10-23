@@ -117,6 +117,16 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 
 **F31:** FOMC days are G2's best days ($5.13/trade, 100% win rate, vs $1.42 on other days). The filter "skip G2 on FOMC and CPI days" is rejected.
 
+**2026-10-23 round:**
+- **F31 pre-FOMC drift:** FAIL (VAL t 0.64, LOCK negative, placebo 72.7%).
+- **F32 macro regimes:** no regime state lost money for any of our books. Two rotation strategies were tested:
+  - V1, an Investment Clock rotation (2004 mapping), failed;
+  - V2, the core moved to cash in stagflation, failed.
+
+  Both had a worse Sharpe than the plain core in VALIDATION and LOCKBOX.
+- **G2 vehicle:** CBOE publishes a real XSP chain. In the one snapshot taken, XSP's bid-ask spread was 133% of the credit, against 48% for SPXW / 10, while G2 can absorb only $1.20-2.02 of extra slippage per spread. XSP looks non-viable; the G2X_* forward keys will settle it. The SPX 10-wide version is possible from about $20k: $126-278/month at base cost, $21-140/month at 2x, max drawdown -$1,470 to -$2,626.
+- **Capital plan, one margin account:** adding every paper strategy to the core raises return about 22% and drawdown about 60% (VAL at 2x on $5k: core alone $749 at -20.1%, everything $914 at -32.2%). Only the core is proven.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
