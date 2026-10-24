@@ -57,6 +57,8 @@ leak until proven otherwise.
 16. Missing data read as "condition false" (NaN > x is False): it fabricated decades of fake states before a series existed.
 17. t-statistics on near-zero variance (every trade hitting the same stop): t = -1624 is a divide-by-epsilon, not evidence.
 18. Rules judged on a handful of trades: report them as untestable instead.
+19. Same-close fills. The leverage computed from close[d] was credited with the move from close[d] to close[d+1], i.e. it filled at the close its own signal came from. On the core (TV 0.15, 2006+), moving the fill one day later costs 0.45 pts of CAGR but 6.31 pts of max drawdown (11.26% / -20.11% -> 10.81% / -26.42%). Every published core figure is the optimistic one.
+20. A "tidied" data URL that silently changed the bar size: Yahoo `range=max&interval=1d` returned ~monthly bars with no error, which gave a five-fold under-sized target leverage. Guard every live fetch on row spacing, row count and the price-to-average ratio.
 
 ## Final step
 
