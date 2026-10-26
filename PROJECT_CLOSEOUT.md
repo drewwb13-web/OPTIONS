@@ -143,6 +143,10 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 - Run on SPY instead of QQQ (1999-2026), the core makes about 1.6 points a year less.
 - Tax drag in a taxable account is 1.5-2.5 points of CAGR. An IRA using QLD for the leverage matches the margin version within 0.1 point.
 
+**Execution and financing (2026-10-25):**
+- **Near-close decision:** deciding at 15:40 ET and filling at that day's close recovers 80% of the next-day drawdown gap (2010+, NQ intraday as a proxy for QQQ: next-day 11.96% / -26.42%, near-close 12.72% / -21.35%). The live 14:40 CT alert uses it. The window excludes 2000-02 and 2008.
+- **Margin vs QLD:** margin only beats the QLD route below a 1.90% borrowing rate. Brokers charge 5.25% (Robinhood Gold) to 12.7% (E*TRADE) for balances under $25k; a flat 12% costs 0.89 pts of CAGR. Use the QLD route in a cash account.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
