@@ -147,6 +147,22 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 - **Near-close decision:** deciding at 15:40 ET and filling at that day's close recovers 80% of the next-day drawdown gap (2010+, NQ intraday as a proxy for QQQ: next-day 11.96% / -26.42%, near-close 12.72% / -21.35%). The live 14:40 CT alert uses it. The window excludes 2000-02 and 2008.
 - **Margin vs QLD:** margin only beats the QLD route below a 1.90% borrowing rate. Brokers charge 5.25% (Robinhood Gold) to 12.7% (E*TRADE) for balances under $25k; a flat 12% costs 0.89 pts of CAGR. Use the QLD route in a cash account.
 
+**B deep-dive (2026-10-27, realistic fills):**
+
+| Book | 1999+ CAGR / max DD | 2010+ CAGR / max DD | $5k + $500/mo, 1999+ | $5k + $500/mo, 2010+ |
+|---|---|---|---|---|
+| Buy and hold QQQ | 10.73% / -82.96% | 19.45% / -35.12% | $2.09M | $675k |
+| Core 0.25 QLD | 11.66% / -32.65% | 17.22% / -32.65% | $1.86M | $607k |
+| Core 0.30 QLD | 12.94% / -35.26% | 19.15% / -33.37% | $2.47M | $747k |
+| Old plan as written (75% engine at 0.15, 25% SGOV, never moved) | 7.42% / -15.97% | 9.84% / -15.97% | $688k | $278k |
+
+- **The Saty-dot reserve rule never existed in the code.**
+- **Core 0.25 lost to buy and hold in 17 of 28 years.** Its edge comes from 2000-02 (-20% vs -83%) and 2008 (-31% vs -78%).
+- **1987-style shock:** at the leverage 0.25 held on 1987-10-19 it loses 29.3% that day, with a -49.4% drawdown to Dec 1988 (100-year series).
+- **QLD drag vs 2x QQQ daily:** mean -3.97%/yr.
+- **Dial plateau:** Sharpe is flat across 0.22-0.28.
+- **Sharadar for F35/F36:** Prices with full history costs $39/month. Derived results may be kept after cancelling.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
