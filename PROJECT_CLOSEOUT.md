@@ -163,6 +163,15 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 - **Dial plateau:** Sharpe is flat across 0.22-0.28.
 - **Sharadar for F35/F36:** Prices with full history costs $39/month. Derived results may be kept after cancelling.
 
+**F41 midterm elections (2026-10-31): INFORMATION ONLY.**
+- **Total US market, 25 midterms from 1926:** the 12 months after election day averaged +18.08%, against +10.18% for the same early-November start in the other three years of the cycle. Non-overlapping t 2.37, permutation rank 97.9%, and it held after the 1968 Almanac (+8.69 pts).
+- **Nasdaq Composite (13 events):** +25.96% vs +9.24%, rank 99.2%.
+- **S&P 500 (14 events):** t 1.81, rank 89.3%, so it fails.
+- **Midterm years are rougher:** average max drawdown inside the year is -19.2% vs -15.6% for all years, and the year's low came before the election in 80% of cases.
+- **Not traded:** there is no multiple-testing correction for a 60-year-old public claim.
+
+**F36 data limit:** 8-K Item 2.02 starts 2004-08-23, and its predecessor Item 12 starts 2003. Before that, earnings 8-Ks were voluntary, so F36 events need a window starting 2003.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
