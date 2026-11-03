@@ -172,6 +172,19 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 
 **F36 data limit:** 8-K Item 2.02 starts 2004-08-23, and its predecessor Item 12 starts 2003. Before that, earnings 8-Ks were voluntary, so F36 events need a window starting 2003.
 
+**Live choice (2026-11-02): the core at TARGET_VOL 0.30, QLD route, plain cash account, $5,000.**
+- Realistic fills, since 1999: 12.94% / -35.26%.
+- 1987-style day: -34.82%, because it held 2.0x then.
+- It lost to buy and hold in 16 of 28 years.
+
+**LEAPS as the core's vehicle: NOT AT THIS ACCOUNT SIZE.**
+- The borrowing rate built into the options (from put-call parity) is 4.77%/yr. That is far below margin (12%) but slightly above QLD's measured drag (3.97%).
+- One 0.80-delta QQQ LEAPS costs about $15,400.
+- Hitting the core's targets within +/-0.15x needs about $365k.
+- Black-Scholes underprices real LEAPS by 5.7% of mid on average (9.7% at 0.75-0.90 delta).
+
+**G4 paper (2026-11-03):** 9 trades, -$533, 1 win.
+
 The first G2 forward trade was voided because pre-edit code opened an SPX 5-wide spread and the close job priced it as an XSP 1-wide. The wing width now comes from the logged strikes, and a mismatch voids the trade.
 
 ## Queue after F23
