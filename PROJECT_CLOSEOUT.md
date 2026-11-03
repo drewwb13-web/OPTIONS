@@ -172,7 +172,9 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 
 **F36 data limit:** 8-K Item 2.02 starts 2004-08-23, and its predecessor Item 12 starts 2003. Before that, earnings 8-Ks were voluntary, so F36 events need a window starting 2003.
 
-**Live choice (2026-11-02): the core at TARGET_VOL 0.30, QLD route, plain cash account, $5,000.**
+**Correction (2026-11-03): Drew is NOT trading real money.** Everything is paper/forward testing only, and no real orders are placed. The "live choice" below is the core setting that gets paper-tracked; it is not an order.
+
+**Core setting chosen for testing (2026-11-02): TARGET_VOL 0.30, QLD route.**
 - Realistic fills, since 1999: 12.94% / -35.26%.
 - 1987-style day: -34.82%, because it held 2.0x then.
 - It lost to buy and hold in 16 of 28 years.
