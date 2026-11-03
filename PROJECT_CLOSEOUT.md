@@ -172,6 +172,12 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 
 **F36 data limit:** 8-K Item 2.02 starts 2004-08-23, and its predecessor Item 12 starts 2003. Before that, earnings 8-Ks were voluntary, so F36 events need a window starting 2003.
 
+**Adaptive-winner test (2026-11-04): FAIL.** Three walk-forward rules chose month by month from a menu of eight (QQQ, SPY, core variants, TLT, gold, bills).
+- **A2 (best trailing 12-month return):** placebo rank 51.8%.
+- **A3 (re-tune the core's dial and trend length each January):** placebo rank 50.3%. Random settings averaged 12.65% CAGR against the rule's 10.10%.
+- **A1 (best trailing 36-month Sharpe):** degenerate. It always picks T-bills; the sanity rule caught it.
+- **Open:** the equal-weight-menu control showed the best Sharpe and the shallowest drawdown. But the full-window table mixes start dates (about 21 to 31 years by row), and its core 0.30 row (10.73% / -42.32%) does not reproduce the verified 12.94% / -35.26%. Reconcile before believing either.
+
 **Correction (2026-11-03): Drew is NOT trading real money.** Everything is paper/forward testing only, and no real orders are placed. The "live choice" below is the core setting that gets paper-tracked; it is not an order.
 
 **Core setting chosen for testing (2026-11-02): TARGET_VOL 0.30, QLD route.**
