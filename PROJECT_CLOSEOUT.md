@@ -172,6 +172,18 @@ Per XSP spread that is about +$12.62 to +$27.77 a month at base cost. The worst 
 
 **F36 data limit:** 8-K Item 2.02 starts 2004-08-23, and its predecessor Item 12 starts 2003. Before that, earnings 8-Ks were voluntary, so F36 events need a window starting 2003.
 
+**Midterm LEAPS (2026-11-04): NO SPECIAL EDGE.** 13-month calls bought the day after each of 25 midterms (model-priced, with the real-vs-model correction applied; 320 of 500 observations use a 1.1x realised-vol IV proxy):
+- **ATM, 12 months:** mean +152%, median +50%, profitable 19 of 25, worst case a total loss.
+- **0.80 delta, 12 months:** profitable 21 of 25, worst -90%.
+- **Same-season control:** t passes only at 6 months (2.04 / 2.39), and the random-date ranks are 61-77%. The gains come from holding calls in a rising market, not from the midterm.
+- **Paper books opened 2026-11-04:** MIDTERM_LEAPS (fractional, real CBOE quotes), MIDTERM_QQQ, MIDTERM_QLD.
+
+**Rolling 10-year scorecard, verified engine:**
+- **100-year series:** core 0.30 made more money than buy and hold in 89.5% of windows, and had a smaller crash in 54.3%.
+- **QQQ era:** 56.4% and 77.3%.
+- **Core 0.15 in the QQQ era:** 13.7% and 99.5%.
+- **Core 0.30 since 2003 (verified):** 15.32% / -35.26%, vs buy and hold QQQ 15.90% / -53.40%.
+
 **Adaptive-winner test (2026-11-04): FAIL.** Three walk-forward rules chose month by month from a menu of eight (QQQ, SPY, core variants, TLT, gold, bills).
 - **A2 (best trailing 12-month return):** placebo rank 51.8%.
 - **A3 (re-tune the core's dial and trend length each January):** placebo rank 50.3%. Random settings averaged 12.65% CAGR against the rule's 10.10%.
